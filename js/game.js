@@ -26,7 +26,7 @@ function render(){background();ctx.fillStyle='#d4b956';ctx.fillRect(L.goalPlatfo
 }
 function spawnBarrel(){barrels.push({x:L.platforms[0].left+100,row:0,y:yAt(0,L.platforms[0].left+100)-8,vx:L.barrelSpeed,vy:0,dir:1,spin:0,r:8,blue:false,falling:false});spawnIn=L.barrelInterval}
 function igniteOil(){if(oil.lit)return;oil.lit=true;ignitionFlash=.6;fireSpawn=.8}
-function dropBarrel(b,x){if(b.row>=L.platforms.length-1)return false;b.falling=true;b.targetRow=b.row+1;b.x=Math.max(L.platforms[b.targetRow].left+8,Math.min(L.platforms[b.targetRow].right-8,x));b.vy=-24;return true}
+function dropBarrel(b,x){if(b.row>=L.platforms.length-1)return false;b.falling=true;b.targetRow=b.row+1;b.x=Math.max(L.platforms[b.targetRow].left+8,Math.min(L.platforms[b.targetRow].right-8,x));b.vy=0;return true}
 function updateBarrel(b,dt){
  if(b.falling){b.vy+=L.gravity*dt;b.x+=b.vx*.08*dt;b.y+=b.vy*dt;const p=L.platforms[b.targetRow],land=yAt(b.targetRow,b.x)-b.r;if(b.y>=land){b.row=b.targetRow;b.y=land;b.vy=0;b.falling=false;b.vx=downhill(b.row,b.dir)*Math.max(55,Math.abs(b.vx)*.72);b.dir=Math.sign(b.vx)||b.dir}return}
  const p=L.platforms[b.row],oldX=b.x,slope=(p.yRight-p.yLeft)/(p.right-p.left),gravityAlong=L.gravity*slope/Math.sqrt(1+slope*slope);b.vx+=gravityAlong*dt;if(Math.abs(slope)<.008)b.vx+=b.dir*20*dt;b.vx-=b.vx*.018*dt;b.vx=Math.max(-132,Math.min(132,b.vx));b.x+=b.vx*dt;b.y=yAt(b.row,b.x)-b.r;b.spin+=b.vx*dt/b.r;
@@ -61,7 +61,7 @@ function movePlayer(dt){
  if(player.buffer>0&&(player.grounded||player.coyote>0))startJump();
  if(!player.grounded){const oldY=player.y;if(input.jump&&player.vy<0&&player.jumpTime<.16)player.vy+=L.gravity*.68*dt;else player.vy+=L.gravity*dt;if(!input.jump&&player.vy< -100)player.vy=-100;player.jumpTime+=dt;player.y+=player.vy*dt;player.coyote=Math.max(0,player.coyote-dt);const floor=yAt(player.row,player.x);if(player.vy>0&&oldY<=floor&&player.y>=floor){player.y=floor;player.vy=0;player.grounded=true;player.vx*=.55}}
 }
-function collide(){if(player.invulnerable>0||player.climbing)return;const hitBarrel=barrels.some(b=>!b.falling&&Math.abs(b.x-player.x)<14&&Math.abs(b.y-(player.y-8))<15);const hitFire=fireballs.some(f=>Math.abs(f.x-player.x)<16&&Math.abs(f.y-(player.y-8))<17);if(hitBarrel||hitFire){resetPlayer()}}
+function collide(){if(player.invulnerable>0||player.climbing)return;const hitBarrel=barrels.some(b=>Math.abs(b.x-player.x)<14&&Math.abs(b.y-(player.y-8))<15);const hitFire=fireballs.some(f=>Math.abs(f.x-player.x)<16&&Math.abs(f.y-(player.y-8))<17);if(hitBarrel||hitFire){resetPlayer()}}
 function tick(dt){if(won){if(jumpPressed)reset();jumpPressed=false;return}movePlayer(dt);barrels.forEach(b=>updateBarrel(b,dt));barrels=barrels.filter(b=>b.x>-24&&b.x<472);
  for(const b of barrels){if(b.row===oil.row&&Math.abs(b.x-oil.x)<13){igniteOil();b.x=oil.x+16;b.vx=Math.abs(b.vx)||55}}
  ignitionFlash=Math.max(0,ignitionFlash-dt);
