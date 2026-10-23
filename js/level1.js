@@ -1,0 +1,3 @@
+window.LEVEL1={width:448,height:512,platforms:[
+{left:30,right:418,yLeft:76,yRight:88},{left:30,right:418,yLeft:150,yRight:138},{left:30,right:418,yLeft:212,yRight:224},{left:30,right:418,yLeft:286,yRight:274},{left:30,right:418,yLeft:348,yRight:360},{left:30,right:418,yLeft:422,yRight:410},{left:30,right:418,yLeft:484,yRight:496}],
+ladders:[{x:365,upper:0},{x:92,upper:1},{x:342,upper:2},{x:110,upper:3},{x:350,upper:4},{x:105,upper:5}],start:{x:48,row:6},goal:{x:390,row:0},barrelInterval:2.45,barrelSpeed:76};
