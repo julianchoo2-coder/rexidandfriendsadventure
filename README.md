@@ -1,1 +1,18 @@
-# Rexid and Friends Adventure\n\nPrototipo jugable del primer nivel, construido desde cero usando como referencia la estructura técnica de Torre Arcade y la disposición de vigas del primer escenario arcade clásico. El arte de personajes y los sprites se mantienen fuera del proyecto por ahora.\n\n## Nivel 1\n\n- Cinco vigas inclinadas en zigzag con escaleras alternadas.\n- Ruta de barriles que avanza por las vigas y cambia de dirección al caer al siguiente nivel.\n- Movimiento horizontal, salto, escalada, colisión, invulnerabilidad breve tras impacto y salto con buffer.\n- Personaje y obstáculos dibujados con formas simples provisionales.\n- Controles táctiles para teléfono y controles de teclado para probar en computador.\n\n## Controles\n\n- Flechas o WASD: moverse y subir/bajar por escaleras.\n- Espacio: saltar.\n- Toca la meta de nuevo o presiona Enter para reiniciar al completar el nivel.\n\nAbre `index.html` en un navegador moderno o usa un servidor estático local.
+# Rexid and Friends Adventure
+
+Prototipo jugable del primer nivel, construido desde cero con el código base de Torre Arcade y tomando como referencia el nivel arcade compartido. El proyecto no reutiliza personajes ni sprites originales; las formas son temporales.
+
+## Nivel y mecánicas
+- Seis vigas inclinadas, escaleras completas y tramos dañados.
+- Las escaleras dañadas bloquean al jugador, pero permiten que los barriles caigan al siguiente nivel.
+- Los barriles aceleran cuesta abajo, ruedan, giran y caen con gravedad al cambiar de viga.
+- El tambor azul de aceite se enciende al recibir un barril y luego suelta bolas de fuego que recorren el nivel.
+- Movimiento con aceleración/frenado, control aéreo, salto variable y buffer de salto.
+- Controles táctiles para Android y teclado para probar en computador.
+
+## Controles
+- Flechas o WASD: movimiento y escaleras.
+- Espacio: saltar.
+- En el teléfono: cruceta y botón SALTO.
+
+Abre `index.html` en un navegador moderno o usa un servidor estático local.
