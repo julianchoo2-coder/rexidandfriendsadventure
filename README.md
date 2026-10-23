@@ -1,12 +1,1 @@
-# Rexid and Friends Adventure
-
-Base inicial creada desde cero con la estructura técnica de Torre Arcade. No incluye sprites, personajes ilustrados ni fondos del juego anterior.
-
-## Estructura
-- `index.html`: pantalla inicial, escenario y controles táctiles.
-- `css/style.css`: diseño adaptable a escritorio y móvil.
-- `js/game.js`: ciclo de vida del juego, controles y canvas.
-
-El canvas usa figuras geométricas temporales. Las mecánicas definitivas y el arte se agregarán después de definir el nuevo juego.
-
-Prueba: abre `index.html` en un navegador moderno. Controles preparados: flechas o WASD, espacio y cruceta táctil.
+# Rexid and Friends Adventure\n\nPrototipo jugable del primer nivel, construido desde cero usando como referencia la estructura técnica de Torre Arcade y la disposición de vigas del primer escenario arcade clásico. El arte de personajes y los sprites se mantienen fuera del proyecto por ahora.\n\n## Nivel 1\n\n- Cinco vigas inclinadas en zigzag con escaleras alternadas.\n- Ruta de barriles que avanza por las vigas y cambia de dirección al caer al siguiente nivel.\n- Movimiento horizontal, salto, escalada, colisión, invulnerabilidad breve tras impacto y salto con buffer.\n- Personaje y obstáculos dibujados con formas simples provisionales.\n- Controles táctiles para teléfono y controles de teclado para probar en computador.\n\n## Controles\n\n- Flechas o WASD: moverse y subir/bajar por escaleras.\n- Espacio: saltar.\n- Toca la meta de nuevo o presiona Enter para reiniciar al completar el nivel.\n\nAbre `index.html` en un navegador moderno o usa un servidor estático local.
